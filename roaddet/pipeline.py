@@ -178,6 +178,7 @@ def _derive(seg: pd.DataFrame) -> None:
     seg["quality"] = np.select([~m, seg["confidence"] >= 0.6, seg["confidence"] >= 0.35],
                                ["not_measured", "good", "fair"], "poor")
     seg["road_area_m2"] = (cw * seg["length_m"]).round(0)
+    seg["n_width_samples"] = seg["n_width_samples"].astype("Int16")
 
 
 def _intersection_metrics(inter, seg, ch: _Chunk, proj, done: set) -> None:
@@ -290,7 +291,9 @@ def run(bbox: BBox, out_dir: Path, *, source: str = "esri_wayback", country: str
         log.info("chunk %d/%d: %d segments, %.0fs", n + 1, len(busy), len(idx), time.time() - tc)
         del ch
     res = pd.DataFrame.from_dict(results, orient="index").reindex(seg.index)
-    cols = ["measured", "fail_reason", "carriageway_width_m", "carriageway_width_iqr_m", "axis_offset_m",
+    cols = ["measured", "fail_reason", "carriageway_width_m", "carriageway_width_iqr_m",
+            "carriageway_width_min_m", "carriageway_width_mean_m", "carriageway_width_median_m",
+            "carriageway_width_max_m", "n_width_samples", "axis_offset_m",
             "parking_left_width_m", "parking_right_width_m", "parking_left_share", "parking_right_share",
             "parking_left_occupancy", "parking_right_occupancy", "sidewalk_left_width_m",
             "sidewalk_right_width_m", "facade_left_m", "facade_right_m", "canopy_edge_left",

@@ -15,7 +15,9 @@ SEGMENT_COLUMNS = [
     "length_m", "from_lon", "from_lat", "to_lon", "to_lat", "mid_lon", "mid_lat",
     # measured on imagery
     "measured", "quality", "confidence", "fail_reason",
-    "carriageway_width_m", "carriageway_width_iqr_m", "travel_width_m", "lanes", "lanes_source", "lanes_est",
+    "carriageway_width_m", "carriageway_width_min_m", "carriageway_width_mean_m",
+    "carriageway_width_median_m", "carriageway_width_max_m", "n_width_samples",
+    "carriageway_width_iqr_m", "travel_width_m", "lanes", "lanes_source", "lanes_est",
     "parking_sides", "parking_left_width_m", "parking_right_width_m", "parking_left_type",
     "parking_right_type", "parking_left_occupancy", "parking_right_occupancy",
     "sidewalk_sides", "sidewalk_left_width_m", "sidewalk_right_width_m",

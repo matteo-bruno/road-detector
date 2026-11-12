@@ -24,6 +24,8 @@ class StripParams:
     dt: float = 0.25         # cross-axis sampling step (m)
     block_m: float = 20.0    # length of the blocks measured independently
     end_trim_m: float = 10.0  # ignored length next to an intersection
+    profile_window_m: float = 10.0  # window of the along-axis width profile
+    profile_step_m: float = 5.0     # distance between two profile windows
     min_usable_m: float = 8.0
     centre_search_m: float = 5.0
     road_thr: float = 0.5
@@ -182,6 +184,21 @@ def _block_measure(P, lum, veg, bld, t, p: StripParams, c0: int | None):
     return res
 
 
+def width_profile(P, lum, veg, bld, t, p: StripParams, c0: int) -> np.ndarray:
+    """Kerb to kerb width along the axis, one value per sliding window (open windows skipped)."""
+    n = P.shape[0]
+    win = max(6, int(round(p.profile_window_m / p.ds)))
+    step = max(1, int(round(p.profile_step_m / p.ds)))
+    starts = [0] if n <= win else sorted(set(range(0, n - win + 1, step)) | {n - win})
+    widths = []
+    for a in starts:
+        sl = slice(a, a + win)
+        b = _block_measure(P[sl], lum[sl], veg[sl], None if bld is None else bld[sl], t, p, c0)
+        if b is not None and not b.get("open"):
+            widths.append(b["travel_w"])
+    return np.array(widths, dtype=float)
+
+
 def measure_strip(rgb, prob, bld, s, t, p: StripParams, trim_start: float, trim_end: float) -> dict:
     """Aggregate block measurements for one segment strip."""
     out = {"measured": False, "n_blocks": 0}
@@ -230,6 +247,15 @@ def measure_strip(rgb, prob, bld, s, t, p: StripParams, trim_start: float, trim_
     out["measured"] = True
     out["carriageway_width_m"] = float(np.median(cw))
     out["carriageway_width_iqr_m"] = float(np.subtract(*np.percentile(cw, [75, 25])))
+    # width statistics along the segment, from the finer sliding-window profile
+    prof = width_profile(P, lum, veg, bld, t, p, g["c0"])
+    if len(prof) < 2:
+        prof = cw
+    out["carriageway_width_min_m"] = float(prof.min())
+    out["carriageway_width_mean_m"] = float(prof.mean())
+    out["carriageway_width_median_m"] = float(np.median(prof))
+    out["carriageway_width_max_m"] = float(prof.max())
+    out["n_width_samples"] = int(len(prof))
     out["axis_offset_m"] = float(np.median((col("t_left") + col("t_right")) / 2))
     for side in ("left", "right"):
         pk = col(f"park_{side}")

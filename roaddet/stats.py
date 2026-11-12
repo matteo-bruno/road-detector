@@ -9,6 +9,7 @@ import pandas as pd
 
 CLASS_ORDER = ["motorway", "trunk", "primary", "secondary", "tertiary", "unclassified",
                "residential", "living_street", "pedestrian", "service"]
+WIDTH_STATS = ("min", "mean", "median", "max")
 
 
 def describe(v: pd.Series, w: pd.Series | None = None) -> dict:
@@ -62,11 +63,15 @@ def compute(seg: pd.DataFrame, inter: pd.DataFrame, meta: dict) -> dict:
                        "share_of_study_area": round(ra_all / 1e6 / area, 3) if area else None}
 
     def widths(df):
-        return {
+        out = {
             "carriageway_width_m": describe(df["carriageway_width_m"], df["length_m"]),
             "travel_width_m": describe(df["travel_width_m"], df["length_m"]),
             "building_to_building_m": describe(df["building_to_building_m"], df["length_m"]),
         }
+        for k in WIDTH_STATS:  # per-segment minimum, mean, median and maximum (absent in older results)
+            if f"carriageway_width_{k}_m" in df:
+                out[f"carriageway_width_{k}_m"] = describe(df[f"carriageway_width_{k}_m"], df["length_m"])
+        return out
 
     st["widths_all_measured"] = widths(m)
     st["widths_good_fair"] = widths(good)
@@ -175,6 +180,10 @@ def report(st: dict, plots: list[str]) -> str:
                 "building to building": w["building_to_building_m"],
                 "parking row": st["parking"]["width_m"],
                 "sidewalk (kerb to facade)": st["sidewalks"]["width_m"]}, "quantity"),
+        *(["", "### Carriageway width within each segment", "",
+           "Minimum, mean, median and maximum of the kerb to kerb width along each segment.", "",
+           _table({k: w[f"carriageway_width_{k}_m"] for k in WIDTH_STATS}, "per-segment value")]
+          if all(f"carriageway_width_{k}_m" in w for k in WIDTH_STATS) else []),
         "", "### Carriageway width by road class", "", _table(st["carriageway_by_class"], "class"),
         "", "### Carriageway width by OSM lane count", "", _table(st["carriageway_by_osm_lanes"], "lanes"),
         "", "### Carriageway width by direction", "", _table(st["carriageway_by_direction"], "direction"),

@@ -99,6 +99,7 @@ seg[seg.quality != "not_measured"].groupby("highway").carriageway_width_m.median
 | `length_m` | length along the centre line |
 | `measured`, `quality`, `confidence`, `fail_reason` | whether the imagery gave a measurement, `good` / `fair` / `poor`, score 0 to 1, reason when not measured (`canopy`, `open_area`, `too_short`, `tunnel`, `junction`, `not_visible`) |
 | `carriageway_width_m` | kerb to kerb, parking rows included |
+| `carriageway_width_min_m`, `carriageway_width_mean_m`, `carriageway_width_median_m`, `carriageway_width_max_m` | minimum, mean, median and maximum of the kerb to kerb width along the segment, from a profile of 10 m windows every 5 m (`n_width_samples` windows). `carriageway_width_m` is the representative value (median of the 20 m blocks) used for the derived attributes |
 | `carriageway_width_iqr_m` | spread of the width between blocks |
 | `travel_width_m` | carriageway minus parking rows |
 | `lanes`, `lanes_source`, `lanes_est` | OSM lanes when tagged, otherwise estimated as travel width / 3.5 m |

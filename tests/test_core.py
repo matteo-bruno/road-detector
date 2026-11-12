@@ -73,6 +73,8 @@ def test_measure_synthetic_street():
     assert res["measured"]
     assert res["carriageway_width_m"] == pytest.approx(10.0, abs=0.6)
     assert res["parking_right_width_m"] == pytest.approx(2.0, abs=0.6)
+    for k in ("min", "mean", "median", "max"):
+        assert res[f"carriageway_width_{k}_m"] == pytest.approx(10.0, abs=0.6)
     assert res["parking_left_width_m"] == 0.0
     assert res["sidewalk_left_width_m"] == pytest.approx(4.0, abs=0.6)
     assert res["sidewalk_right_width_m"] == pytest.approx(3.0, abs=0.6)
@@ -81,3 +83,24 @@ def test_measure_synthetic_street():
 def test_describe_weighted():
     d = describe(pd.Series([10.0, 20.0]), pd.Series([300.0, 100.0]))
     assert d["mean"] == 15.0 and d["mean_length_weighted"] == 12.5 and d["n"] == 2
+
+
+def test_width_profile_varying_street():
+    # carriageway 8 m wide for the first half of the segment, 14 m for the second half
+    p = measure.StripParams()
+    t = np.arange(-p.half_width_m, p.half_width_m + 1e-6, p.dt)
+    s = np.arange(0, 120.0, p.ds)
+    rgb = np.full((len(s), len(t), 3), 200, np.uint8)
+    prob = np.zeros((len(s), len(t)), np.uint8)
+    half = len(s) // 2
+    for rows, w in ((slice(0, half), 8.0), (slice(half, None), 14.0)):
+        road = (t >= -w / 2) & (t <= w / 2)
+        rgb[rows, road] = 90
+        prob[rows, road] = 240
+    res = measure.measure_strip(rgb, prob, None, s, t, p, 2.0, 2.0)
+    assert res["measured"]
+    assert res["carriageway_width_min_m"] == pytest.approx(8.0, abs=0.6)
+    assert res["carriageway_width_max_m"] == pytest.approx(14.0, abs=1.0)  # window across the step
+    assert res["carriageway_width_mean_m"] == pytest.approx(11.0, abs=1.0)
+    assert res["carriageway_width_min_m"] <= res["carriageway_width_median_m"] <= res["carriageway_width_max_m"]
+    assert res["n_width_samples"] >= 15
