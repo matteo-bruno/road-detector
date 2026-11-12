@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "roaddet"
+version = "0.1.0"
+description = "Road detection and measurement from aerial imagery, matched to OpenStreetMap"
+requires-python = ">=3.10"
+dependencies = [
+    "numpy", "pandas", "geopandas", "shapely>=2", "pyproj", "scipy", "scikit-learn",
+    "opencv-python-headless", "pillow", "requests", "pyarrow", "matplotlib", "joblib",
+]
+
+[project.optional-dependencies]
+dev = ["pytest"]
+
+[project.scripts]
+roaddet = "roaddet.cli:main"
+
+[tool.setuptools]
+packages = ["roaddet"]

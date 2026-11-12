@@ -1,0 +1,637 @@
+{
+  "meta": {
+    "label": "Roma (centro, ~30 km2)",
+    "bbox": [
+      12.44,
+      41.87,
+      12.52,
+      41.92
+    ],
+    "area_km2": 36.9,
+    "imagery": "Esri World Imagery Wayback 2021-11-30 (Esri, Maxar, Earthstar Geographics)",
+    "imagery_source": "esri_wayback",
+    "ground_resolution_m": 0.222,
+    "missing_imagery_frac": 0.0,
+    "osm": "OpenStreetMap contributors (ODbL)",
+    "classifier_weak_label_accuracy": 0.874,
+    "crs_metric": "EPSG:32633",
+    "runtime_s": 1373,
+    "created": "2026-11-12T10:28:28Z"
+  },
+  "network": {
+    "segments": 8188,
+    "length_km": 603.5,
+    "streets_named": 2248,
+    "measured_segments": 6324,
+    "measured_share_of_length": 0.882,
+    "good_or_fair_share_of_length": 0.568,
+    "not_measured_reasons": {
+      "open_area": 803,
+      "too_short": 580,
+      "canopy": 220,
+      "not_visible": 147,
+      "tunnel": 110,
+      "inconsistent": 4
+    },
+    "quality_counts": {
+      "good": 2981,
+      "fair": 1921,
+      "not_measured": 1864,
+      "poor": 1422
+    },
+    "one_way_share_of_length": 0.744,
+    "dual_carriageway_share_of_length": 0.192,
+    "segment_length_m": {
+      "n": 8188,
+      "mean": 73.7,
+      "median": 61.2,
+      "std": 68.24,
+      "min": 0.5,
+      "p10": 16.3,
+      "p25": 30.1,
+      "p75": 96.9,
+      "p90": 140.73,
+      "max": 1496.4
+    }
+  },
+  "road_area": {
+    "measured_km2": 4.363,
+    "estimated_total_km2": 8.33,
+    "share_of_study_area": 0.226
+  },
+  "widths_all_measured": {
+    "carriageway_width_m": {
+      "n": 6324,
+      "mean": 13.79,
+      "median": 12.38,
+      "std": 7.29,
+      "min": 0.25,
+      "p10": 5.75,
+      "p25": 8.62,
+      "p75": 17.75,
+      "p90": 24.25,
+      "max": 44.25,
+      "mean_length_weighted": 13.09,
+      "median_length_weighted": 11.88
+    },
+    "travel_width_m": {
+      "n": 6324,
+      "mean": 9.61,
+      "median": 8.0,
+      "std": 6.39,
+      "min": -2.38,
+      "p10": 3.0,
+      "p25": 4.88,
+      "p75": 12.88,
+      "p90": 19.0,
+      "max": 40.5,
+      "mean_length_weighted": 9.07,
+      "median_length_weighted": 7.75
+    },
+    "building_to_building_m": {
+      "n": 3335,
+      "mean": 17.96,
+      "median": 17.0,
+      "std": 6.94,
+      "min": 3.5,
+      "p10": 9.93,
+      "p25": 12.75,
+      "p75": 22.0,
+      "p90": 28.0,
+      "max": 42.88,
+      "mean_length_weighted": 18.13,
+      "median_length_weighted": 17.38
+    }
+  },
+  "widths_good_fair": {
+    "carriageway_width_m": {
+      "n": 4902,
+      "mean": 13.69,
+      "median": 12.12,
+      "std": 7.44,
+      "min": 0.25,
+      "p10": 5.5,
+      "p25": 8.38,
+      "p75": 17.59,
+      "p90": 24.49,
+      "max": 44.25,
+      "mean_length_weighted": 12.73,
+      "median_length_weighted": 11.5
+    },
+    "travel_width_m": {
+      "n": 4902,
+      "mean": 9.49,
+      "median": 7.75,
+      "std": 6.48,
+      "min": -2.38,
+      "p10": 3.0,
+      "p25": 4.62,
+      "p75": 12.62,
+      "p90": 19.0,
+      "max": 40.5,
+      "mean_length_weighted": 8.62,
+      "median_length_weighted": 7.12
+    },
+    "building_to_building_m": {
+      "n": 2766,
+      "mean": 17.14,
+      "median": 16.25,
+      "std": 6.65,
+      "min": 3.5,
+      "p10": 9.38,
+      "p25": 12.25,
+      "p75": 20.72,
+      "p90": 26.31,
+      "max": 41.5,
+      "mean_length_weighted": 17.08,
+      "median_length_weighted": 16.25
+    }
+  },
+  "carriageway_by_class": {
+    "trunk": {
+      "n": 4,
+      "mean": 29.72,
+      "median": 28.94,
+      "std": 4.07,
+      "min": 25.75,
+      "p10": 25.79,
+      "p25": 25.85,
+      "p75": 32.81,
+      "p90": 34.27,
+      "max": 35.25,
+      "mean_length_weighted": 31.25,
+      "median_length_weighted": 32.0
+    },
+    "primary": {
+      "n": 321,
+      "mean": 18.59,
+      "median": 18.0,
+      "std": 8.71,
+      "min": 1.88,
+      "p10": 7.62,
+      "p25": 11.62,
+      "p75": 25.0,
+      "p90": 30.12,
+      "max": 43.5,
+      "mean_length_weighted": 18.15,
+      "median_length_weighted": 18.25
+    },
+    "secondary": {
+      "n": 492,
+      "mean": 18.31,
+      "median": 17.0,
+      "std": 8.39,
+      "min": 1.75,
+      "p10": 8.38,
+      "p25": 11.94,
+      "p75": 24.5,
+      "p90": 28.99,
+      "max": 44.25,
+      "mean_length_weighted": 17.3,
+      "median_length_weighted": 16.25
+    },
+    "tertiary": {
+      "n": 799,
+      "mean": 17.26,
+      "median": 16.25,
+      "std": 7.75,
+      "min": 0.75,
+      "p10": 7.75,
+      "p25": 11.5,
+      "p75": 22.38,
+      "p90": 28.55,
+      "max": 43.75,
+      "mean_length_weighted": 16.01,
+      "median_length_weighted": 15.38
+    },
+    "unclassified": {
+      "n": 81,
+      "mean": 15.61,
+      "median": 14.88,
+      "std": 8.49,
+      "min": 2.25,
+      "p10": 5.75,
+      "p25": 8.75,
+      "p75": 20.0,
+      "p90": 27.5,
+      "max": 40.0,
+      "mean_length_weighted": 14.26,
+      "median_length_weighted": 13.0
+    },
+    "residential": {
+      "n": 3114,
+      "mean": 11.61,
+      "median": 10.62,
+      "std": 5.92,
+      "min": 0.25,
+      "p10": 5.0,
+      "p25": 7.75,
+      "p75": 14.62,
+      "p90": 19.5,
+      "max": 42.5,
+      "mean_length_weighted": 10.97,
+      "median_length_weighted": 10.38
+    },
+    "living_street": {
+      "n": 91,
+      "mean": 8.7,
+      "median": 6.25,
+      "std": 6.44,
+      "min": 1.0,
+      "p10": 3.0,
+      "p25": 4.0,
+      "p75": 11.0,
+      "p90": 19.5,
+      "max": 29.0,
+      "mean_length_weighted": 7.84,
+      "median_length_weighted": 5.25
+    }
+  },
+  "carriageway_by_osm_lanes": {
+    "1": {
+      "n": 2329,
+      "mean": 11.73,
+      "median": 10.5,
+      "std": 6.16,
+      "min": 0.25,
+      "p10": 5.25,
+      "p25": 7.75,
+      "p75": 14.38,
+      "p90": 20.05,
+      "max": 42.75,
+      "mean_length_weighted": 10.94,
+      "median_length_weighted": 10.25
+    },
+    "2": {
+      "n": 1592,
+      "mean": 16.24,
+      "median": 15.5,
+      "std": 7.28,
+      "min": 0.75,
+      "p10": 7.75,
+      "p25": 11.12,
+      "p75": 20.25,
+      "p90": 26.48,
+      "max": 43.75,
+      "mean_length_weighted": 15.32,
+      "median_length_weighted": 14.75
+    },
+    "3": {
+      "n": 155,
+      "mean": 19.1,
+      "median": 18.25,
+      "std": 8.17,
+      "min": 0.75,
+      "p10": 9.55,
+      "p25": 13.06,
+      "p75": 24.25,
+      "p90": 31.3,
+      "max": 40.75,
+      "mean_length_weighted": 17.85,
+      "median_length_weighted": 16.75
+    },
+    "4": {
+      "n": 197,
+      "mean": 22.13,
+      "median": 22.25,
+      "std": 7.34,
+      "min": 3.75,
+      "p10": 11.97,
+      "p25": 18.0,
+      "p75": 26.5,
+      "p90": 31.5,
+      "max": 43.5,
+      "mean_length_weighted": 21.79,
+      "median_length_weighted": 21.75
+    },
+    "5": {
+      "n": 7,
+      "mean": 26.68,
+      "median": 25.75,
+      "std": 5.47,
+      "min": 19.12,
+      "p10": 20.85,
+      "p25": 23.38,
+      "p75": 29.19,
+      "p90": 33.67,
+      "max": 36.75,
+      "mean_length_weighted": 25.07,
+      "median_length_weighted": 24.75
+    },
+    "6": {
+      "n": 10,
+      "mean": 28.09,
+      "median": 29.93,
+      "std": 10.21,
+      "min": 5.25,
+      "p10": 15.15,
+      "p25": 24.81,
+      "p75": 36.75,
+      "p90": 38.27,
+      "max": 38.5,
+      "mean_length_weighted": 28.37,
+      "median_length_weighted": 27.25
+    }
+  },
+  "carriageway_by_direction": {
+    "one_way": {
+      "n": 3687,
+      "mean": 13.37,
+      "median": 11.75,
+      "std": 7.25,
+      "min": 0.25,
+      "p10": 5.5,
+      "p25": 8.25,
+      "p75": 17.0,
+      "p90": 24.0,
+      "max": 44.25,
+      "mean_length_weighted": 12.32,
+      "median_length_weighted": 11.0
+    },
+    "two_way": {
+      "n": 1215,
+      "mean": 14.67,
+      "median": 14.0,
+      "std": 7.9,
+      "min": 0.5,
+      "p10": 5.25,
+      "p25": 8.75,
+      "p75": 19.25,
+      "p90": 25.45,
+      "max": 43.75,
+      "mean_length_weighted": 13.98,
+      "median_length_weighted": 13.5
+    }
+  },
+  "parking": {
+    "share_of_length_by_sides": {
+      "0": 0.273,
+      "1": 0.424,
+      "2": 0.303
+    },
+    "width_m": {
+      "n": 5008,
+      "mean": 4.11,
+      "median": 3.88,
+      "std": 1.57,
+      "min": 1.75,
+      "p10": 2.12,
+      "p25": 2.75,
+      "p75": 5.5,
+      "p90": 6.5,
+      "max": 6.5
+    },
+    "occupancy": {
+      "n": 5008,
+      "mean": 0.66,
+      "median": 0.65,
+      "std": 0.13,
+      "min": 0.32,
+      "p10": 0.5,
+      "p25": 0.56,
+      "p75": 0.76,
+      "p90": 0.85,
+      "max": 1.0
+    },
+    "type_share_of_sides": {
+      "none": 0.489,
+      "perpendicular": 0.188,
+      "parallel": 0.177,
+      "diagonal": 0.146
+    },
+    "kerb_length_with_parking_km": 352.8
+  },
+  "sidewalks": {
+    "share_of_length_by_sides": {
+      "0": 0.397,
+      "1": 0.431,
+      "2": 0.172
+    },
+    "width_m": {
+      "n": 3552,
+      "mean": 3.29,
+      "median": 3.0,
+      "std": 1.64,
+      "min": 1.0,
+      "p10": 1.38,
+      "p25": 2.0,
+      "p75": 4.25,
+      "p90": 5.75,
+      "max": 8.0
+    }
+  },
+  "speed_limits_share_of_length": {
+    "15": 0.0,
+    "20": 0.013,
+    "30": 0.082,
+    "40": 0.006,
+    "50": 0.899
+  },
+  "speed_limit_source_share": {
+    "default": 0.42,
+    "osm": 0.58
+  },
+  "lanes_osm_share_of_length": {
+    "1": 0.492,
+    "2": 0.412,
+    "3": 0.045,
+    "4": 0.046,
+    "5": 0.002,
+    "6": 0.002
+  },
+  "osm_comparison": {
+    "lanes": {
+      "n": 4290,
+      "exact": 0.42,
+      "within_1": 0.733,
+      "mean_diff": 0.87
+    },
+    "width_tag": {
+      "n": 49,
+      "mae_m": 4.45,
+      "bias_m": 3.12,
+      "median_abs_m": 3.5
+    },
+    "parking_presence": {
+      "n_sides": 626,
+      "agreement": 0.634,
+      "osm_yes_detected": 0.629,
+      "osm_no_detected": 0.333
+    },
+    "sidewalk_sides": {
+      "n": 1552,
+      "exact": 0.303
+    }
+  },
+  "intersections": {
+    "count": 3786,
+    "per_km2": 102.6,
+    "per_km_of_road": 6.27,
+    "by_arms": {
+      "1": 72,
+      "2": 69,
+      "3": 2313,
+      "4": 1062,
+      "5": 149,
+      "6": 83,
+      "7": 18,
+      "8": 11,
+      "9": 1,
+      "10": 3,
+      "11": 1,
+      "12": 2,
+      "13": 1,
+      "15": 1
+    },
+    "roundabouts": 21,
+    "with_traffic_signals": 540,
+    "approx_diameter_m": {
+      "n": 3697,
+      "mean": 15.47,
+      "median": 13.4,
+      "std": 9.25,
+      "min": 1.0,
+      "p10": 7.6,
+      "p25": 10.0,
+      "p75": 18.8,
+      "p90": 25.24,
+      "max": 172.9
+    },
+    "paved_area_m2": {
+      "n": 3697,
+      "mean": 271.76,
+      "median": 183.0,
+      "std": 414.81,
+      "min": 0.0,
+      "p10": 65.0,
+      "p25": 116.0,
+      "p75": 319.0,
+      "p90": 520.4,
+      "max": 10102.0
+    }
+  },
+  "widest_streets": [
+    {
+      "name": "Viale Castro Pretorio",
+      "length_m": 465.3,
+      "w": 33.2,
+      "n": 6
+    },
+    {
+      "name": "Via Giuseppe Ferrari",
+      "length_m": 288.1,
+      "w": 31.1,
+      "n": 4
+    },
+    {
+      "name": "Via Luisa di Savoia",
+      "length_m": 241.7,
+      "w": 31.0,
+      "n": 5
+    },
+    {
+      "name": "Via della Giuliana",
+      "length_m": 476.2,
+      "w": 30.4,
+      "n": 6
+    },
+    {
+      "name": "Via del Teatro di Marcello",
+      "length_m": 530.8,
+      "w": 29.9,
+      "n": 10
+    },
+    {
+      "name": "Viale Marco Polo",
+      "length_m": 1245.7,
+      "w": 29.8,
+      "n": 10
+    },
+    {
+      "name": "Via Albalonga",
+      "length_m": 333.9,
+      "w": 28.8,
+      "n": 7
+    },
+    {
+      "name": "Via Aosta",
+      "length_m": 235.2,
+      "w": 28.0,
+      "n": 3
+    },
+    {
+      "name": "Piazzale Ostiense",
+      "length_m": 335.5,
+      "w": 27.4,
+      "n": 10
+    },
+    {
+      "name": "Via Statilia",
+      "length_m": 322.1,
+      "w": 27.0,
+      "n": 5
+    }
+  ],
+  "narrowest_streets": [
+    {
+      "name": "Borgo Vittorio",
+      "length_m": 278.8,
+      "w": 3.1,
+      "n": 4
+    },
+    {
+      "name": "Via dei Campani",
+      "length_m": 220.5,
+      "w": 3.2,
+      "n": 1
+    },
+    {
+      "name": "Via Belsiana",
+      "length_m": 326.2,
+      "w": 3.8,
+      "n": 2
+    },
+    {
+      "name": "Viale dei Colli Portuensi",
+      "length_m": 833.6,
+      "w": 3.8,
+      "n": 11
+    },
+    {
+      "name": "Via Mario de' Fiori",
+      "length_m": 444.2,
+      "w": 3.8,
+      "n": 4
+    },
+    {
+      "name": "Via del Pellegrino",
+      "length_m": 265.0,
+      "w": 4.0,
+      "n": 3
+    },
+    {
+      "name": "Via della Vite",
+      "length_m": 265.6,
+      "w": 4.0,
+      "n": 3
+    },
+    {
+      "name": "Via del Governo Vecchio",
+      "length_m": 300.4,
+      "w": 4.1,
+      "n": 2
+    },
+    {
+      "name": "Via Alberto Cadlolo",
+      "length_m": 337.7,
+      "w": 4.2,
+      "n": 2
+    },
+    {
+      "name": "Via Pietro Campora",
+      "length_m": 200.6,
+      "w": 4.2,
+      "n": 1
+    }
+  ]
+}

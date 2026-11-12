@@ -1,0 +1,19 @@
+{
+  "label": "Roma (centro, ~30 km2)",
+  "bbox": [
+    12.44,
+    41.87,
+    12.52,
+    41.92
+  ],
+  "area_km2": 36.9,
+  "imagery": "Esri World Imagery Wayback 2021-11-30 (Esri, Maxar, Earthstar Geographics)",
+  "imagery_source": "esri_wayback",
+  "ground_resolution_m": 0.222,
+  "missing_imagery_frac": 0.0,
+  "osm": "OpenStreetMap contributors (ODbL)",
+  "classifier_weak_label_accuracy": 0.874,
+  "crs_metric": "EPSG:32633",
+  "runtime_s": 1373,
+  "created": "2026-11-12T10:28:28Z"
+}
